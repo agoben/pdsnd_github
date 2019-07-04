@@ -1,15 +1,31 @@
 ### Date created
-Include the date you created this project and README file.
+July 4, 2019
 
 ### Project Title
-Replace the Project Title
+US Bikeshare Tracking Program
 
 ### Description
-Describe what your project is about and what it does
+This program allows the user to evaluate usage statistics relating to bikeshare programs in US metropolises.
 
 ### Files used
-Include the files used
+Python modules required:
+  * calendar - convert dates
+  * numpy - use for statistical processing
+  * pandas - use dataframes
+  * time - track processing speeds
+
+Bikeshare data originally sourced from:
+  * https://www.motivateco.com/
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+This project relied heavily on the coursework provided in the Udacity Python Programming for Data Science course.
 
+Additional resources used and reviewed include:
+  * https://docs.python.org/3/library/
+  * https://pandas.pydata.org/
+  * https://pythonspot.com/pandas-filter/
+  * https://stackoverflow.com/
+  * https://www.geeksforgeeks.org/python-programming-language/
+  * https://data36.com/ : Pandas tutorials
+  * https://mode.com/python-tutorial/
+  * https://www.w3schools.com/python/
