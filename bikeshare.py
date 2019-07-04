@@ -22,7 +22,13 @@ month_dict = {'all':0,
               'march':3,
               'april':4,
               'may':5,
-              'june':6}
+              'june':6,
+              'july':7,
+              'august':8,
+              'september':9,
+              'october':10,
+              'november':11,
+              'december':12}
 
 
 day_dict = {'all': 9,
@@ -61,7 +67,7 @@ def get_filters():
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         try:
-            month = input('Please choose a month (January-June) by name to evaluate (enter "all" for full data):\n').lower()
+            month = input('Please choose a month by name to evaluate (enter "all" for full data):\n').lower()
             if month in month_dict:
                 break
             else:
