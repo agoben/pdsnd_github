@@ -5,7 +5,7 @@ July 4, 2019
 US Bikeshare Tracking Program
 
 ### Description
-Describe what your project is about and what it does
+This program allows the user to evaluate usage statistics relating to bikeshare programs in US metropolises.
 
 ### Files used
 Include the files used
