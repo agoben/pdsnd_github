@@ -17,22 +17,28 @@ CITY_DATA = { 'chicago': 'chicago.csv',
               'washington': 'washington.csv' }
 
 
-month_dict = {'all':0, 
-              'january':1, 
-              'february':2, 
-              'march':3, 
-              'april':4, 
-              'may':5, 
-              'june':6}
+month_dict = {'all':0,
+              'january':1,
+              'february':2,
+              'march':3,
+              'april':4,
+              'may':5,
+              'june':6,
+              'july':7,
+              'august':8,
+              'september':9,
+              'october':10,
+              'november':11,
+              'december':12}
 
 
-day_dict = {'all': 9, 
-            'monday': 1, 
-            'tuesday': 2, 
-            'wednesday': 3, 
-            'thursday': 4, 
-            'friday': 5, 
-            'saturday': 6, 
+day_dict = {'all': 9,
+            'monday': 1,
+            'tuesday': 2,
+            'wednesday': 3,
+            'thursday': 4,
+            'friday': 5,
+            'saturday': 6,
             'sunday': 7}
 
 
@@ -56,20 +62,20 @@ def get_filters():
                 print('Invalid entry.  Please your selection enter from the supplied list.')
         except:
             print('Invalid entry.  Please your selection enter from the supplied list.')
-        finally: 
+        finally:
             print('You entered:', city.title())
 
     # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         try:
-            month = input('Please choose a month (January-June) by name to evaluate (enter "all" for full data):\n').lower()
+            month = input('Please choose a month by name to evaluate (enter "all" for full data):\n').lower()
             if month in month_dict:
                 break
             else:
                 print('Entry value not recognized.  Please enter your selection again.')
         except:
             print('Entry value not recognized.  Please enter your selection again.')
-        finally: 
+        finally:
             print('You entered:', month.title())
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
@@ -82,7 +88,7 @@ def get_filters():
                 print('Invalid entry.  Please enter your selection again.')
         except:
             print('Invalid entry.  Please enter your selection again.')
-        finally: 
+        finally:
             print('You entered:', day.title())
 
     print('-'*40)
@@ -105,7 +111,7 @@ def load_data(city, month, day):
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.weekday_name
     df['trip'] = (df['Start Station'] + ' to ' + df['End Station'])
-    
+
     if month != 'all':
         month = month_dict[month]
         # filter by month if applicable
@@ -114,7 +120,7 @@ def load_data(city, month, day):
     # filter by day of week if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
-        df = df[df['day_of_week'] == day.title()]    
+        df = df[df['day_of_week'] == day.title()]
 
     return df
 
@@ -137,13 +143,13 @@ def time_stats(df, city, month, day):
     if month == 'all':
         most_common_month = df['month'].mode()[0]
         most_common_month = calendar.month_name[most_common_month]
-    
+
         print('Most popular month of the year:', most_common_month)
 
     # Displays the most common day of week for selected month if no day filter
     if day == 'all':
         most_common_day = df['day_of_week'].mode()[0]
-        
+
         print('Most popular day of the week in', month_name, ': ', most_common_day)
 
     # Calculate and display the most common start hour by selected day/month
@@ -157,7 +163,7 @@ def time_stats(df, city, month, day):
         most_common_hour = str(most_common_hour-12) + " PM"
     print('Most popular hour on', day_name, 'in', month_name, ': ', most_common_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -173,24 +179,24 @@ def station_stats(df):
     print('Most common starting station:', most_common_start_stn)
     # Calculate and display most commonly used end station
     most_common_end_stn = df['End Station'].mode()[0]
-    
+
     print('Most common ending station:', most_common_end_stn)
 
     # Calculate and display most frequent combination of start station and end station trip
     most_common_trip = df['trip'].mode()[0]
-    
+
     print('Most common trip:', most_common_trip)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
-    
+
     def sec_time(time_in_sec):
         """Creates printable string that breaks a group of seconds
-           into hours, minutes, and remaining seconds 
+           into hours, minutes, and remaining seconds
         """
         hours = (str('{:,}'.format(int(time_in_sec / 3600))))
         mins = (str(int((time_in_sec / 60) % 60)))
@@ -200,7 +206,7 @@ def trip_duration_stats(df):
         else:
             time = (hours + ' hours, ' + mins + ' minutes, and ' + secs + ' seconds')
         return (time)
-        
+
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
@@ -216,7 +222,7 @@ def trip_duration_stats(df):
     avg_travel = (sec_time(average_travel))
     print('Average trip time for selected dates :', avg_travel)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -228,7 +234,7 @@ def user_stats(df, city):
 
     # Calculate and display counts of user types
     user_types = df['User Type'].value_counts()
-    
+
     print('Participant types for the selected dates: \n')
     print(user_types)
 
@@ -252,7 +258,7 @@ def user_stats(df, city):
         print('\nThe most recent reported year of birth is:', most_recent_year)
         print('\nThe most commonly reported year of birth is:', most_common_year)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -274,20 +280,20 @@ def review_data(df):
             break
         else:
             print('Invalid entry.  Please enter your selection again.')
-        
+
 
 def main():
     while True:
         # Get inputs from user and data sources
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        
+
         # Process and print statistics
         time_stats(df, city, month, day)
         station_stats(df)
         trip_duration_stats(df)
         user_stats(df, city)
-        
+
         # Offer raw data
         offer_data = 'y'
         while offer_data == 'y':
@@ -299,15 +305,16 @@ def main():
                 break
             else:
                 print('Invalid entry.  Please enter your selection again.')
-        
+
         # Offer restart options
-        restart = input('\nWould you like to restart? Enter yes to continue or any other value to quit.\n')
-        if restart.lower() != 'yes':
+        restart = input('\nWould you like to restart? Y/N\n')
+        if restart.lower() != 'y':
             break
 
 
 if __name__ == "__main__":
 	main()
+<<<<<<< HEAD
 
     
 ||||||| merged common ancestors
@@ -627,3 +634,8 @@ if __name__ == "__main__":
 
     
 >>>>>>> documentation
+||||||| merged common ancestors
+
+    
+=======
+>>>>>>> refactoring
