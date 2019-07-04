@@ -2,6 +2,9 @@
 """
 Udacity - Programming for Data Science - Project 2
 
+This project utilitizes sanitized data from bikeshare programs in Chicago, New
+York City, and Washington.  Additional data sources may be added as available.
+
 @author: annagoben
 """
 
