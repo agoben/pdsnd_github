@@ -156,7 +156,7 @@ def time_stats(df, city, month, day):
         most_common_hour = str(most_common_hour-12) + " PM"
     print('Most popular hour on', day_name, 'in', month_name, ': ', most_common_hour)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -180,7 +180,7 @@ def station_stats(df):
 
     print('Most common trip:', most_common_trip)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -215,7 +215,7 @@ def trip_duration_stats(df):
     avg_travel = (sec_time(average_travel))
     print('Average trip time for selected dates :', avg_travel)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
@@ -251,7 +251,7 @@ def user_stats(df, city):
         print('\nThe most recent reported year of birth is:', most_recent_year)
         print('\nThe most commonly reported year of birth is:', most_common_year)
 
-    print("\nThis took %s seconds." % (time.time() - start_time))
+    # print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 
