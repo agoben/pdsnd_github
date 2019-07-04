@@ -15,4 +15,14 @@ Python modules required:
   * time - track processing speeds
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
+This project relied heavily on the coursework provided in the Udacity Python Programming for Data Science course.
+
+Additional resources used and reviewed include:
+  * https://docs.python.org/3/library/
+  * https://pandas.pydata.org/
+  * https://pythonspot.com/pandas-filter/
+  * https://stackoverflow.com/
+  * https://www.geeksforgeeks.org/python-programming-language/
+  * https://data36.com/ : Pandas tutorials
+  * https://mode.com/python-tutorial/
+  * https://www.w3schools.com/python/
