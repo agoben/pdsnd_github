@@ -14,6 +14,9 @@ Python modules required:
   * pandas - use dataframes
   * time - track processing speeds
 
+Bikeshare data originally sourced from:
+  * https://www.motivateco.com/
+
 ### Credits
 This project relied heavily on the coursework provided in the Udacity Python Programming for Data Science course.
 
